@@ -33,20 +33,20 @@ install:
 
 script: 
   # Build and run the tests
-  - qmake boost_units_example_6.pro
+  - qmake boost_units_example_16.pro
   - make debug
-  - ./boost_units_example_6
+  - ./boost_units_example_16
   # helgrind
-  - valgrind --tool=helgrind --log-file=helgrind.log -v ./boost_units_example_6
+  - valgrind --tool=helgrind --log-file=helgrind.log -v ./boost_units_example_16
   - cat helgrind.log
   # memcheck
-  - valgrind --leak-check=full -v --show-reachable=yes --log-file=memcheck.log ./boost_units_example_6
+  - valgrind --leak-check=full -v --show-reachable=yes --log-file=memcheck.log ./boost_units_example_16
   - cat memcheck.log
   # Build and run and profile normal program
-  - qmake boost_units_example_6.pro
+  - qmake boost_units_example_16.pro
   - make release
-  - time ./boost_units_example_6
-  - gprof boost_units_example_6 > gprof.log
+  - time ./boost_units_example_16
+  - gprof boost_units_example_16 > gprof.log
   - head gprof.log
   # Get code coverage
   - ./get_code_cov
